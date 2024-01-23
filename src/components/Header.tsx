@@ -36,7 +36,19 @@ export const Header = ({ className }: HeaderProps) => {
       )}
     >
       <div className='container mx-auto'>
-        <div className='flex justify-between items-center'></div>
+        <div className='flex justify-between items-center'>
+          <MyComponents.Logo />
+          <div className='flex items-center gap-x-6'>
+            <MyComponents.Nav
+              containerStyles='hidden lg:flex gap-x-8 items-center'
+              linkStyles='relative hover:text-primary transition-all'
+              underlineStyles='absolute left-0 top-full h-[2px] bg-primary w-full'
+            />
+            <div className='lg:hidden'>
+              <MyComponents.MobileNav />
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
