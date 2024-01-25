@@ -14,7 +14,7 @@ export const Hero = () => {
   return (
     <section className='flex justify-center items-center py-12 lg:py-24 h-[84vh] lg:pt-10 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
       <div className='container mx-auto'>
-        <div className='flex items-center justify-center gap-x-8'>
+        <div className='flex flex-col items-center justify-center gap-x-8'>
           <div className='hidden lg:flex relative'>
             <Image src='build.svg' alt='build' height={600} width={600} />
           </div>
