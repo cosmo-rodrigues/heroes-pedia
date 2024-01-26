@@ -20,7 +20,11 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
-export function Recovery() {
+interface RecoveryProps {
+  handleChangeType: (type: string) => void;
+}
+
+export function Recovery({ handleChangeType }: RecoveryProps) {
   const router = useRouter();
 
   const form = useForm<FormSchema>({
@@ -32,12 +36,13 @@ export function Recovery() {
 
   async function onSubmit(formValues: FormSchema) {
     console.log(formValues);
+    handleChangeType('recovery-success');
   }
 
   return (
-    <Shad.Card className='py-5 px-0 max-w-lg sm:w-full'>
-      <div className='flex flex-col justify-center items-center space-y-2'>
-        <h1 className='text-center'>
+    <Shad.Card className='flex flex-col py-7 px-10 max-w-lg h-[433px] sm:w-[380px] w-screen sm:rounded-0 rounded-3xl'>
+      <div className='flex flex-col space-y-2'>
+        <h1 className='font-extrabold text-2xl text-primary'>
           Recuperar senha
           <span className='font-bold text-red-600 text-4xl'>.</span>
         </h1>
@@ -58,6 +63,13 @@ export function Recovery() {
                   <Shad.FormControl>
                     <Shad.Input placeholder='informe seu email' {...field} />
                   </Shad.FormControl>
+                  <Image
+                    className='absolute top-[20%] right-3'
+                    src='/arroba.svg'
+                    alt='arroba'
+                    height={17}
+                    width={17}
+                  />
                 </Shad.FormItem>
               )}
             />
@@ -65,14 +77,6 @@ export function Recovery() {
             <Shad.Button type='submit'>enviar link</Shad.Button>
           </form>
         </Shad.Form>
-      </div>
-      <div>
-        <Image
-          src='/question_shield.svg'
-          height={15}
-          width={15}
-          alt='question'
-        />
       </div>
     </Shad.Card>
   );

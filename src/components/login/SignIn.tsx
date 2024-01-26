@@ -30,7 +30,11 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
-export function SignIn() {
+interface SignInProps {
+  handleChangeType: (type: string) => void;
+}
+
+export function SignIn({ handleChangeType }: SignInProps) {
   const router = useRouter();
 
   const form = useForm<FormSchema>({
@@ -126,7 +130,12 @@ export function SignIn() {
           width={15}
           alt='question'
         />
-        <p className='ml-2 text-red-600'>Esqueceu a senha?</p>
+        <div
+          className='ml-2 text-red-600 cursor-pointer'
+          onClick={() => handleChangeType('recovery')}
+        >
+          Esqueceu a senha?
+        </div>
       </div>
     </Shad.Card>
   );
