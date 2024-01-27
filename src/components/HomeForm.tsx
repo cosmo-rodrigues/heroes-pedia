@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SignIn } from './login/SignIn';
-import { Recovery } from './login/Recovery';
-import { RecoverySuccess } from './login/RecoverySuccess';
+import { SignIn } from './Forms/SignIn';
+import { Recovery } from './Forms/Recovery';
+import { RecoverySuccess } from './Forms/RecoverySuccess';
 
 type SelectedForm = 'sign-in' | 'recovery' | 'recovery-success';
 
